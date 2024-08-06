@@ -37,7 +37,12 @@ export class UserLinksComponent {
       name: '',
       url: '',
     };
-    this.addLink(newLink);
+    if (this.linkService.id() > 3) {
+      console.log('You can only have 4 links');
+      this.addLink(newLink);
+    } else {
+      this.linkService.updateIndex();
+    }
     return newLink;
   }
 
@@ -58,8 +63,9 @@ export class UserLinksComponent {
     this.linkService.addLink(newLink);
   }
 
-  removeLink(field: any, index: string) {
-    field.api.removeValue(Number(index));
+  removeLink(field: any, index: string, formIndex: number) {
+    console.log('removing link', index);
+    field.api.removeValue(formIndex);
     this.linkService.deleteLink(index);
   }
 }

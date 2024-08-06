@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, input, output, signal } from '@angular/core';
+import { Component, computed, input, output, signal } from '@angular/core';
 import { TanStackField, injectForm } from '@tanstack/angular-form';
 import { DropdownModule } from 'primeng/dropdown';
 import { OptionComponent } from '../dropdown/option/option.component';
@@ -30,6 +30,7 @@ export class LinkFormComponent {
   dropdwonValue = input.required<string>();
   textErrors = input.required<string>();
   index = input.required<string>();
+  indexNumber = computed(() => Number(this.index()));
   dropdownLabel = input.required<string>();
   textValue = input.required<string>();
   textLabel = input.required<string>();

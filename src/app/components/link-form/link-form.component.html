@@ -2,7 +2,7 @@
   <section class="flex justify-between gap-4">
     <div class="flex gap-2 items-center font-semibold">
       <app-link-line class="fill-gray" />
-      <h3>Link #{{ index() }}</h3>
+      <h3>Link #{{ 1 + indexNumber() }}</h3>
     </div>
     <button (click)="removeLink.emit(index())" type="button" class="text-gray">
       Remove

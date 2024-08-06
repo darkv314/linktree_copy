@@ -10,12 +10,24 @@ export type Link = {
   providedIn: 'root',
 })
 export class LinkService {
-  links = signal<Link[]>([]);
+  links = signal<Link[]>(
+    Array(4)
+      .fill(0)
+      .map((_, index) => ({
+        id: `${index}`,
+        name: '',
+        url: '',
+      }))
+  );
   id = signal(0);
+
+  updateIndex() {
+    this.id.update((id) => id + 1);
+  }
 
   addLink(link: Link) {
     this.links.update((links) => [...links, link]);
-    this.id.update((id) => id + 1);
+    this.updateIndex();
   }
 
   updateLinkName(id: string, name: string) {

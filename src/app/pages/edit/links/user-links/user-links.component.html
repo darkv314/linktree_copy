@@ -1,0 +1,55 @@
+<ng-container [tanstackField]="form()" name="links" #links="field">
+  <section class="flex flex-col gap-4 h-full">
+    <app-button
+      (buttonClick)="links.api.pushValue(createDefaultLink())"
+      type="button"
+      [full]="true"
+      name="+ Add new link"
+      [variant]="'secondary'"
+    />
+    @if (!(links.api.state.value.length > 0)) {
+    <app-empty-links />
+    } @else {
+    <div class="flex flex-col gap-4 max-h-[470px] h-full overflow-y-auto">
+      @for (newLink of links.api.state.value; track $index) {
+      <ng-container
+        [tanstackField]="form()"
+        [name]="getLinkUrl(newLink.id)"
+        #link="field"
+        [validatorAdapter]="zodValidator()"
+        [validators]="{
+            onChange: urlValidator,
+          }"
+      >
+        <ng-container
+          [tanstackField]="form()"
+          [name]="getLinkName(newLink.id)"
+          [validatorAdapter]="zodValidator()"
+          [validators]="{
+              onChange: emptyValidator,
+              }"
+          #name="field"
+        >
+          <app-link-form
+            [index]="newLink.id"
+            (removeLink)="removeLink(links, $any($event))"
+            [dropdwonValue]="name.api.state.value"
+            [textValue]="link.api.state.value"
+            (dropdownValueChange)="
+              onDropdownValueChange(name, $any($event), newLink.id)
+            "
+            (textValueChange)="
+              onTextValueChange(link, $any($event), newLink.id)
+            "
+            [textErrors]="link.api.state.meta.errors.join(', ')"
+            [dropdownErrors]="name.api.state.meta.errors.join(', ')"
+            [dropdownLabel]="name.api.name"
+            [textLabel]="link.api.name"
+          />
+        </ng-container>
+      </ng-container>
+      }
+    </div>
+    }
+  </section>
+</ng-container>

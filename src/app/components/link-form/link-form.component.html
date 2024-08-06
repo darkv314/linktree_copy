@@ -1,0 +1,26 @@
+<div class="flex flex-col gap-4 bg-gray-extra-light p-5 rounded-xl">
+  <section class="flex justify-between gap-4">
+    <div class="flex gap-2 items-center font-semibold">
+      <app-link-line class="fill-gray" />
+      <h3>Link #{{ index() }}</h3>
+    </div>
+    <button (click)="removeLink.emit(index())" type="button" class="text-gray">
+      Remove
+    </button>
+  </section>
+  <app-dropdown
+    [id]="dropdownLabel()"
+    [dropdownFormLabel]="dropdownLabel()"
+    dropdownLabel="Platform"
+    (valueChange)="dropdownValueChange.emit($event)"
+    [errors]="dropdownErrors()"
+    [value]="dropdwonValue()"
+  />
+  <app-text-field
+    [value]="textValue()"
+    [textFormLabel]="textLabel()"
+    textLabel="Link"
+    (valueChange)="textValueChange.emit($event)"
+    [errors]="textErrors()"
+  />
+</div>

@@ -1,0 +1,27 @@
+<div class="grid grid-cols-[2fr_3fr] h-full gap-6">
+  <section class="rounded-xl grid place-items-center p-6 bg-white">
+    <div
+      class="border border-gray p-2 rounded-[3rem] grid place-items-center relative"
+    >
+      <app-preview-section></app-preview-section>
+      <div class="flex flex-col gap-14 absolute size-full px-6 py-11">
+        <div class="size-32"></div>
+        <section class="flex flex-col gap-5">
+          @for (link of links(); track $index) { @if(link.url !== "" &&
+          link.name !== ""){
+          <app-link-tab
+            [to]="link.url"
+            [class]="linkTabs.get(link.name)?.color"
+            [icon]="linkTabs.get(link.name)?.icon"
+          >
+            {{ link.name }}
+          </app-link-tab>
+          } }
+        </section>
+      </div>
+    </div>
+  </section>
+  <section class="rounded-xl">
+    <router-outlet></router-outlet>
+  </section>
+</div>

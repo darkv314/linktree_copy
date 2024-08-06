@@ -1,0 +1,11 @@
+<nav class="flex justify-between p-4 rounded-xl bg-white items-center">
+  <img class="size-8 rounded-lg" src="assets/svg/icon.svg" alt="Link icon" />
+  <div class="flex gap-4">
+    @for (link of links; track $index) {
+    <app-tab [icon]="link.icon" [name]="link.name" [to]="link.to" />
+    }
+  </div>
+  <a routerLink="/preview">
+    <app-button name="Preview" variant="secondary" />
+  </a>
+</nav>

@@ -1,0 +1,21 @@
+<app-field [fieldFormLabel]="textFormLabel()" [fieldLabel]="textLabel()">
+  <div
+    [ngClass]="{
+      'grid-cols-[auto_1fr]': errors() === '',
+    }"
+    class="grid items-center grid-cols-[auto_1fr_auto] gap-2 w-full border border-gray-light bg-white p-4 rounded-lg focus-within:shadow-purple"
+  >
+    <app-link class="fill-gray" />
+    <input
+      [id]="textFormLabel()"
+      [value]="value()"
+      (input)="valueChange.emit($any($event).target.value)"
+      placeholder="e.g. https://www.github.com/johnappleseed"
+      class="rounded-lg w-full outline-none"
+      type="text"
+    />
+    @if (errors() !== '') {
+    <p class="text-red text-xs">{{ errors() }}</p>
+    }
+  </div>
+</app-field>

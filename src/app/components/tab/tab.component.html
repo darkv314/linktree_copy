@@ -1,0 +1,12 @@
+<a
+  [routerLink]="['/edit', to()]"
+  routerLinkActive="bg-primary-extra-light text-primary fill-primary"
+  class="hover:fill-primary hover:text-primary"
+>
+  <button
+    class="font-semibold px-7 py-3 bg-inherit fill-inherit text-inherit rounded-lg flex justify-center items-center gap-2"
+  >
+    <app-dynamic-icon class="fill-inherit" [icon]="icon()" />
+    {{ name() }}
+  </button>
+</a>

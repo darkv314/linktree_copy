@@ -7,6 +7,8 @@
     class="font-semibold px-7 py-3 bg-inherit fill-inherit text-inherit rounded-lg flex justify-center items-center gap-2"
   >
     <app-dynamic-icon class="fill-inherit" [icon]="icon()" />
-    {{ name() }}
+    <span class="hidden sm:block">
+      {{ name() }}
+    </span>
   </button>
 </a>

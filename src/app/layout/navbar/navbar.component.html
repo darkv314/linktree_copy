@@ -1,15 +1,18 @@
 <nav
-  class="flex justify-between p-4 rounded-xl bg-white items-center"
+  class="z-10 flex gap-4 justify-between p-4 rounded-xl bg-white items-center"
   [ngClass]="currentPath === '/preview' ? 'absolute w-full' : ''"
 >
-  <img class="size-8 rounded-lg" src="assets/svg/icon.svg" alt="Link icon" />
+  <img
+    class="hidden sm:block sm:size-8 rounded-lg"
+    src="assets/svg/icon.svg"
+    alt="Link icon"
+  />
   <div class="flex gap-4">
     @for (link of links; track $index) {
     <app-tab [icon]="link.icon" [name]="link.name" [to]="link.to" />
     }
   </div>
   <a routerLink="/preview">
-    {{ currentPath }}
     <app-button name="Preview" variant="secondary" />
   </a>
 </nav>

@@ -22,6 +22,9 @@ import { CommonModule } from '@angular/common';
     CommonModule,
   ],
   templateUrl: './navbar.component.html',
+  host: {
+    class: 'relative w-full h-full',
+  },
 })
 export class NavbarComponent implements OnInit {
   currentPath: string = '';

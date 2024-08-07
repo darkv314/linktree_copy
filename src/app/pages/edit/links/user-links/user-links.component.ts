@@ -46,8 +46,8 @@ export class UserLinksComponent {
     return newLink;
   }
 
-  getLinkName = (idx: string) => `links[${Number(idx)}].name` as const;
-  getLinkUrl = (idx: string) => `links[${Number(idx)}].url` as const;
+  getLinkName = (idx: number) => `links[${idx}].name` as const;
+  getLinkUrl = (idx: number) => `links[${idx}].url` as const;
 
   onDropdownValueChange(field: any, value: string, index: string) {
     field.api.handleChange(value);

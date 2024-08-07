@@ -10,11 +10,13 @@
     @if (!(links.api.state.value.length > 0)) {
     <app-empty-links />
     } @else {
-    <div class="flex flex-col gap-4 max-h-[450px] h-full overflow-y-auto">
+    <div
+      class="flex flex-col gap-4 min-h-[400px] max-h-[440px] h-full overflow-y-auto pb-20"
+    >
       @for (newLink of links.api.state.value; track $index) {
       <ng-container
         [tanstackField]="form()"
-        [name]="getLinkUrl(newLink.id)"
+        [name]="getLinkUrl($index)"
         #link="field"
         [validatorAdapter]="zodValidator()"
         [validators]="{
@@ -23,7 +25,7 @@
       >
         <ng-container
           [tanstackField]="form()"
-          [name]="getLinkName(newLink.id)"
+          [name]="getLinkName($index)"
           [validatorAdapter]="zodValidator()"
           [validators]="{
               onChange: emptyValidator,

@@ -1,5 +1,20 @@
 <div class="flex flex-col justify-center items-center gap-4 p-4">
+  @if (imgSrc()==='') {
   <div class="size-24 rounded-full bg-gray-light"></div>
-  <span class="w-[80%] rounded-[104px] h-4 bg-gray-light"></span>
-  <span class="w-[40%] rounded-[104px] h-2 bg-gray-light"></span>
+  } @else { alo }
+  <div class="flex flex-col gap-2 w-full items-center">
+    @if (firstName()!=='' || lastName()!=='') {
+    <span class="text-lg font-semibold">
+      {{ firstName() }} {{ lastName() }}
+    </span>
+    } @else {
+    <span class="w-[80%] rounded-[104px] h-4 bg-gray-light"></span>
+    } @if(email()!=='') {
+    <span class="text-sm text-gray">
+      {{ email() }}
+    </span>
+    } @else {
+    <span class="w-[40%] rounded-[104px] h-2 bg-gray-light"></span>
+    }
+  </div>
 </div>

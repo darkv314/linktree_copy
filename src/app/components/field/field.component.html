@@ -1,4 +1,16 @@
-<div class="flex flex-col gap-1">
-  <label class="text-xs" [for]="fieldFormLabel()">{{ fieldLabel() }}</label>
+<div
+  [ngClass]="
+    variant() === 'primary'
+      ? 'flex-col gap-1'
+      : 'grid grid-cols-[1fr_2fr] gap-4 items-center'
+  "
+>
+  <label
+    [ngClass]="
+      variant() === 'primary' ? 'text-xs' : 'text-base w-full text-gray'
+    "
+    [for]="fieldFormLabel()"
+    >{{ fieldLabel() }}</label
+  >
   <ng-content></ng-content>
 </div>

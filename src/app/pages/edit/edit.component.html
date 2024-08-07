@@ -1,14 +1,6 @@
-<div class="grid grid-cols-[2fr_3fr] h-full gap-6">
+<div class="grid grid-cols-1 lg:grid-cols-[2fr_3fr] h-full gap-6">
   <section class="rounded-xl grid place-items-center p-6 bg-white">
-    <div
-      class="border border-gray p-2 rounded-[3rem] grid place-items-center relative"
-    >
-      <app-preview-section></app-preview-section>
-      <div class="flex flex-col gap-14 absolute size-full px-8 py-14">
-        <app-preview-profile />
-        <app-preview-links />
-      </div>
-    </div>
+    <app-preview-section />
   </section>
   <section class="rounded-xl">
     <router-outlet></router-outlet>

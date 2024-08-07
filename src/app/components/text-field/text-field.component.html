@@ -1,4 +1,8 @@
-<app-field [fieldFormLabel]="textFormLabel()" [fieldLabel]="textLabel()">
+<app-field
+  [variant]="variant()"
+  [fieldFormLabel]="textFormLabel()"
+  [fieldLabel]="textLabel()"
+>
   <div
     [ngClass]="{
       'grid-cols-[auto_1fr]': errors() === '',
@@ -10,7 +14,7 @@
       [id]="textFormLabel()"
       [value]="value()"
       (input)="valueChange.emit($any($event).target.value)"
-      placeholder="e.g. https://www.github.com/johnappleseed"
+      [placeholder]="placeholder()"
       class="rounded-lg w-full outline-none"
       type="text"
     />

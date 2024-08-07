@@ -8,6 +8,9 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [FieldComponent, LinkComponent, LinkComponent, CommonModule],
   templateUrl: './text-field.component.html',
+  host: {
+    class: 'w-full',
+  },
 })
 export class TextFieldComponent {
   value = input.required<string>();
@@ -15,4 +18,6 @@ export class TextFieldComponent {
   textFormLabel = input.required<string>();
   textLabel = input.required<string>();
   errors = input.required<string>();
+  variant = input<string>('primary');
+  placeholder = input<string>('e.g. https://www.github.com/johnappleseed');
 }

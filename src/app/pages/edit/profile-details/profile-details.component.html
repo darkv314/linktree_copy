@@ -1,1 +1,57 @@
-<p>profile-details works!</p>
+<form
+  (submit)="handleSubmit($event)"
+  class="grid grid-rows-[1fr_auto] gap-2 h-full"
+>
+  <section class="p-10 bg-white rounded-xl flex flex-col w-full gap-10">
+    <section class="flex flex-col">
+      <app-header>
+        <ng-template headerDirective> Profile Details </ng-template>
+      </app-header>
+      <app-paragraph>
+        Add your details to create a personal touch to your profile.
+      </app-paragraph>
+    </section>
+    <section class="flex flex-col gap-6">
+      <div
+        class="grid grid-cols-[1fr_2fr] gap-4 bg-gray-extra-light items-center p-5 rounded-xl"
+      >
+        <label class="text-gray" for="">Profile picture</label>
+        <div class="flex gap-6 items-center">
+          <app-image-upload />
+          <app-paragraph>
+            Use PNG or JPG images that are at least 128x128 pixels.
+          </app-paragraph>
+        </div>
+      </div>
+      <div
+        class="flex flex-col gap-3 bg-gray-extra-light items-center p-5 rounded-xl"
+      >
+        @for (input of inputs; track $index) {
+        <ng-container
+          [tanstackField]="profileForm"
+          [name]="input.name"
+          [validatorAdapter]="zodValidator()"
+          [validators]="{
+          onChange: input.validator,
+        }"
+          #inputform="field"
+        >
+          <app-text-field
+            [placeholder]="input.placeholder"
+            [variant]="'secondary'"
+            [textFormLabel]="inputform.api.name"
+            [textLabel]="input.label"
+            [value]="inputform.api.state.value"
+            [errors]="inputform.api.state.meta.errors.join(', ')"
+            (valueChange)="onValueChange(inputform, $any($event))"
+          />
+        </ng-container>
+
+        }
+      </div>
+    </section>
+  </section>
+  <section class="w-full flex justify-end py-6 px-10 bg-white rounded-xl">
+    <app-button type="submit" [name]="'Save'" />
+  </section>
+</form>

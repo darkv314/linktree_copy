@@ -33,6 +33,7 @@ export class ProfileDetailsComponent {
         firstName: this.profileService.profile.firstName(),
         lastName: this.profileService.profile.lastName(),
         email: this.profileService.profile.email(),
+        imgSrc: this.profileService.profile.imgSrc(),
       },
       onSubmit({ value }) {
         console.log('alo', value);
@@ -45,6 +46,7 @@ export class ProfileDetailsComponent {
       firstName: string;
       lastName: string;
       email: string;
+      imgSrc: string;
     },
     undefined
   >;

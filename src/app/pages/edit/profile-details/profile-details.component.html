@@ -15,9 +15,18 @@
       <div
         class="grid grid-cols-[1fr_2fr] gap-4 bg-gray-extra-light items-center p-5 rounded-xl"
       >
-        <label class="text-gray" for="">Profile picture</label>
+        <label class="text-gray" for="imgSrc">Profile picture</label>
         <div class="flex gap-6 items-center">
-          <app-image-upload />
+          <ng-container
+            [tanstackField]="profileForm"
+            name="imgSrc"
+            #imgSrc="field"
+          >
+            <app-image-upload
+              [value]="imgSrc.api.state.value"
+              (valueChange)="onValueChange(imgSrc, $any($event))"
+            />
+          </ng-container>
           <app-paragraph>
             Use PNG or JPG images that are at least 128x128 pixels.
           </app-paragraph>

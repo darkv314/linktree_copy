@@ -8,7 +8,8 @@ import { NavbarComponent } from './layout/navbar/navbar.component';
   imports: [RouterOutlet, NavbarComponent],
   templateUrl: './app.component.html',
   host: {
-    class: 'min-h-dvh grid grid-rows-[auto_1fr] p-6 bg-gray-extra-light gap-6',
+    class:
+      'relative min-h-dvh grid grid-rows-[auto_1fr] p-6 bg-gray-extra-light gap-6',
   },
 })
 export class AppComponent {

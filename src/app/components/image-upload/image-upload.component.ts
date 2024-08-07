@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 import { ImageComponent } from '../icons/image/image.component';
 
 @Component({
@@ -12,6 +12,8 @@ export class ImageUploadComponent {
   fileUrl: string | ArrayBuffer | null | undefined = null;
   over: boolean = false;
   isHovered = false;
+  valueChange = output<string>();
+  value = input.required<string>();
 
   onDragOver(event: DragEvent) {
     event.preventDefault();
@@ -28,17 +30,16 @@ export class ImageUploadComponent {
     this.over = false;
     const droppedFiles = event.dataTransfer?.files;
     if (droppedFiles) {
-      console.log('a');
       this.handleFiles(droppedFiles[0]);
     }
   }
 
   handleFiles(file: File) {
     this.file = file;
-
     const reader = new FileReader();
     reader.onload = (e) => {
       this.fileUrl = e.target?.result;
+      this.valueChange.emit(this.fileUrl as string);
     };
     reader.readAsDataURL(file);
   }

@@ -1,0 +1,20 @@
+<form
+  class="grid grid-rows-[1fr_auto] gap-2 h-full"
+  (submit)="handleSubmit($event)"
+>
+  <section class="flex flex-col gap-10 p-10 bg-white rounded-xl">
+    <div class="flex flex-col gap-2">
+      <app-header>
+        <ng-template headerDirective> Customize your links </ng-template>
+      </app-header>
+      <app-paragraph>
+        Add/edit/remove links below and then share all your profiles with the
+        world!
+      </app-paragraph>
+    </div>
+    <app-user-links [form]="linkForm" />
+  </section>
+  <section class="w-full flex justify-end py-6 px-10 bg-white rounded-xl">
+    <app-button type="submit" [name]="'Save'" />
+  </section>
+</form>

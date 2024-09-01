@@ -1,1 +1,91 @@
-/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap");
+@import "primeng/resources/primeng.css";
+@import "primeng/resources/themes/lara-light-purple/theme.css";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer tailwind-base, primeng, tailwind-utilities;
+
+@layer tailwind-base {
+  @tailwind base;
+}
+
+/* @layer tailwind-utilities {
+  @tailwind components;
+  @tailwind utilities;
+} */
+
+* {
+  font-family: "Instrument Sans", sans-serif;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+}
+
+img,
+video,
+svg {
+  height: auto;
+  max-width: 100%;
+}
+
+.animated-background {
+  background-size: 400%;
+  -webkit-animation: animation 10s ease infinite;
+  -moz-animation: animation 10s ease infinite;
+  animation: animation 10s ease infinite;
+}
+
+@keyframes animation {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.p-dropdown {
+  width: 100%;
+}
+
+.p-dropdown:not(.p-disabled) {
+  border: 1px solid #e1e1e1;
+  border-radius: 0.5rem;
+  padding: 0.25rem 0.25rem;
+}
+
+.p-dropdown:not(.p-disabled).p-focus {
+  box-shadow: 0px 0px 5px 1px #633cff;
+}
+
+.p-dropdown-panel .p-dropdown-items .p-dropdown-item.p-highlight.p-focus {
+  background: white;
+  color: #633cff;
+  fill: #633cff;
+}
+
+.p-dropdown-item,
+.p-dropdown-label {
+  font-weight: 450;
+  fill: #737373;
+}

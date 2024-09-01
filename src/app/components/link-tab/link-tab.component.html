@@ -1,0 +1,12 @@
+<a [href]="to()">
+  <button
+    [ngClass]="bgColor()"
+    class="w-full px-4 py-[10px] flex justify-between items-center"
+  >
+    <div class="flex gap-2 items-center fill-white text-white text-xs">
+      <app-dynamic-icon class="fill-inherit" [icon]="icon()" />
+      <ng-content></ng-content>
+    </div>
+    <app-right-arrow />
+  </button>
+</a>

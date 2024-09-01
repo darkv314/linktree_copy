@@ -1,0 +1,14 @@
+<button
+  (click)="buttonClick.emit()"
+  [type]="type()"
+  class="px-7 py-3 rounded-lg font-semibold"
+  [ngClass]="{
+    'text-white bg-primary hover:bg-primary-light hover:shadow-lg':
+      variant() === 'primary',
+    'text-primary bg-transparent border border-primary hover:bg-primary-extra-light':
+      variant() === 'secondary',
+    'w-full': full()
+  }"
+>
+  {{ name() }}
+</button>

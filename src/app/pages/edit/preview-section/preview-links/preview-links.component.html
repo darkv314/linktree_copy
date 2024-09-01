@@ -1,0 +1,16 @@
+<section
+  class="flex flex-col gap-5 max-h-[200px] lg:max-h-[250px] overflow-y-scroll"
+>
+  @for (link of links(); track $index) { @if(link.url !== "" && link.name !=="")
+  {
+  <app-link-tab
+    [to]="link.url"
+    [class]="linkTabs.get(link.name)?.color"
+    [icon]="linkTabs.get(link.name)?.icon"
+  >
+    {{ link.name }}
+  </app-link-tab>
+  } @else {
+  <div class="w-full h-9 p-2 rounded-lg bg-gray-light text-gray-light">a</div>
+  } }
+</section>

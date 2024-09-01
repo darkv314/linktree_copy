@@ -1,0 +1,29 @@
+<app-field
+  [fieldFormLabel]="dropdownFormLabel()"
+  [fieldLabel]="dropdownLabel()"
+>
+  <p-dropdown
+    [id]="dropdownFormLabel()"
+    [inputId]="dropdownFormLabel()"
+    [ngClass]="'w-full'"
+    [(ngModel)]="dropdownValue"
+    width="100%"
+    (onChange)="onValueChange($event)"
+    [options]="options"
+    optionLabel="label"
+    optionValue="value"
+    placeholder="Select a Platform"
+  >
+    <ng-template let-selectedLink pTemplate="selectedItem">
+      <app-option [icon]="selectedLink.icon">
+        {{ selectedLink.label }}
+      </app-option>
+    </ng-template>
+    <ng-template let-link pTemplate="item">
+      <app-option [icon]="link.icon">
+        {{ link.label }}
+      </app-option>
+    </ng-template>
+  </p-dropdown>
+  <p class="text-red text-xs">{{ errors() }}</p>
+</app-field>
